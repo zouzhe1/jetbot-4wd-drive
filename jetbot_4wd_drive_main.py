@@ -52,7 +52,7 @@ class LB_Motor:
             self._pwm.setPWM(self.IN2pin, 0, self.speed)
         if (command == LB_Motor.BACKWARD):
             self.setPin(self.IN2pin, 1)
-            self._pwm.setPWM(self.IN1pin, 0, self.speed)
+            self._pwm.setPWM(self.IN1pin, self.speed, 0)
         if (command == LB_Motor.RELEASE):
             self.setPin(self.IN1pin, 0)
             self.setPin(self.IN2pin, 0)
@@ -67,12 +67,12 @@ class play:
     def __init__(self, arg=None):
         self.arg = arg
         self.motor=[ LB_Motor(m,i2c_bus=1) for m in range(4) ]
-    def qianjin(self,speed):
+    def forward(self,speed):
         for i in range(4):
             self.motor[i].setSpeed(speed)
         for i in range(4):
             self.motor[i].run(self.motor[i].FORWARD)
-    def houtui(self,speed):
+    def backward(self,speed):
         for i in range(4):
             self.motor[i].setSpeed(speed)
         for i in range(4):
