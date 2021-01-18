@@ -82,3 +82,10 @@ class play:
             self.motor[i].setSpeed(0)
         for i in range(4):
             self.motor[i].run(self.motor[i].RELEASE)
+    def turnright(self,angle=0)：
+	    '''code'''
+	    pass
+	def turnleft(self,angle=0)：
+	    '''code'''
+	    pass
+
